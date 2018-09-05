@@ -25,7 +25,7 @@ RUN chmod 777 backend/runtime && chmod 777 api/runtime && chmod 777 wechat/runti
 # 
 COPY start.sh /root/start.sh
 COPY dbinit.sh /root/dbinit.sh
-COPY api.conf /usr/local/nginx/conf/vhost/
-COPY wechat.conf /usr/local/nginx/conf/vhost/
-COPY backend.conf /usr/local/nginx/conf/vhost/
+COPY conf/api.conf /usr/local/nginx/conf/vhost/
+COPY conf/wechat.conf /usr/local/nginx/conf/vhost/
+COPY conf/backend.conf /usr/local/nginx/conf/vhost/
 CMD /root/start.sh
