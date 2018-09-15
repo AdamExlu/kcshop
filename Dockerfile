@@ -17,7 +17,7 @@ EXPOSE 81 82 83
 WORKDIR /home/www/
 RUN git clone -b master http://blobt:73937393@kcdev.lwl1688.com:3000/blobt/kcshop.git;
 WORKDIR /home/www/kcshop
-RUN chown -R www.www . && chmod 777 backend/runtime && chmod 777 api/runtime && chmod 777 wechat/runtime && chmod a+x init && ./init --env=Production && randKey=`openssl rand -hex 16` && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" api/config/main-local.php && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" wechat/config/main-local.php && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" backend/config/main-local.php && sed -i "s/^fastcgi_param PHP_ADMIN_VALUE/#&/" /usr/local/nginx/conf/fastcgi.conf
+RUN chown -R www.www . && chmod a+x init && ./init --env=Production && chmod 777 backend/runtime && chmod 777 api/runtime && chmod 777 wechat/runtime && randKey=`openssl rand -hex 16` && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" api/config/main-local.php && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" wechat/config/main-local.php && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" backend/config/main-local.php && sed -i "s/^fastcgi_param PHP_ADMIN_VALUE/#&/" /usr/local/nginx/conf/fastcgi.conf
 
 # install composer
 #RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer;
