@@ -30,7 +30,7 @@ if [ ! "$v" ];then
 
 	touch /root/account.txt
 	echo "kcshopDBpass: ${kcpass}" > /root/account.txt
-	echo "mysqlRootPass: ${mysqlpass}" >> root/account.txt
+	echo "mysqlRootPass: ${mysqlpass}" >> /root/account.txt
 
 
 fi
