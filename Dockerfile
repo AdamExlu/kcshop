@@ -1,5 +1,5 @@
 FROM centos:7
-LABEL version="1.0"
+LABEL version="1.1"
 LABEL description="Kcshop auto setup."
 
 # install php env
@@ -15,7 +15,7 @@ EXPOSE 81 82 83
 
 # clone kcsop code
 WORKDIR /home/www/
-RUN git clone -b master http://blobt:73937393@kcdev.lwl1688.com:3000/blobt/kcshop.git;
+RUN git clone -b master http://blobt:73937393@kcdev.lwl1688.com:3000/iron/kcshop_nestling.git;
 WORKDIR /home/www/kcshop
 RUN chown -R www.www . && chmod a+x init && ./init --env=Production && chmod 777 backend/runtime && chmod 777 api/runtime && chmod 777 wechat/runtime && randKey=`openssl rand -hex 16` && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" api/config/main-local.php && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" wechat/config/main-local.php && sed -i "s/'cookieValidationKey' => ''/'cookieValidationKey' => '${randKey}'/" backend/config/main-local.php && sed -i "s/^fastcgi_param PHP_ADMIN_VALUE/#&/" /usr/local/nginx/conf/fastcgi.conf
 
