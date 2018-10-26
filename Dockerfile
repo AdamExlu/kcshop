@@ -31,7 +31,8 @@ RUN	chmod a+x /root/start.sh && \
 	cd /root/ext/fileinfo && /usr/local/php/bin/phpize && \
 	./configure --with-php-config=/usr/local/php/bin/php-config && \
 	make && cp ./modules/fileinfo.so /usr/local/php/lib/php/extensions/no-debug-non-zts-20170718/fileinfo.so && \
-	sed -i '/\[PHP\]/a\extension=imagick\.so' /usr/local/php/etc/php.ini;
+	sed -i '/\[PHP\]/a\extension=imagick\.so' /usr/local/php/etc/php.ini &&\
+	cd /root && rm -rf ext;
 
 
 CMD /root/start.sh
