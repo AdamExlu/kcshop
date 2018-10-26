@@ -30,9 +30,9 @@ if [ $? = "0"  ];then
 
 		/home/www/kcshop/yii init ${admin_pass}
 
-		touch /root/account.txt
-		echo "kcshopDBpass: ${kcpass}" > /root/account.txt
-		echo "mysqlRootPass: ${mysqlpass}" >> /root/account.txt
+		touch /root/account/account.txt
+		echo "kcshopDBpass: ${kcpass}" > /root/account/account.txt
+		echo "mysqlRootPass: ${mysqlpass}" >> /root/account/account.txt
 	fi
 
 fi
