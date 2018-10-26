@@ -17,7 +17,7 @@ COPY conf/wechat.conf /usr/local/nginx/conf/vhost/
 COPY conf/backend.conf /usr/local/nginx/conf/vhost/
 
 # kcshop
-RUN	chmod 777 /root/start.sh && mkdir /home/www/kcshop && chown www.www /home/www/kcshop && mkdir /root/account &&sed -i "s/^fastcgi_param PHP_ADMIN_VALUE/#&/" /usr/local/nginx/conf/fastcgi.conf;
+RUN	chmod a+x /root/start.sh && chmod a+x /root/dbinit.sh && mkdir /home/www/kcshop && chown www.www /home/www/kcshop && mkdir /root/account &&sed -i "s/^fastcgi_param PHP_ADMIN_VALUE/#&/" /usr/local/nginx/conf/fastcgi.conf;
 
 
 CMD /root/start.sh
