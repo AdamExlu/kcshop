@@ -9,7 +9,7 @@ LABEL description="kcshop setup"
 #RUN tar zxf lnmp1.5.tar.gz && cd lnmp1.5 && LNMP_Auto="y" DBSelect="9" DB_Root_Password="0220f96dba" InstallInnodb="y" PHPSelect="8" SelectMalloc="1" ./install.sh lnmp
 
 # kcshop
-RUN	touch /home/www/kcshop && chown www.www /home/www/kcshop && touch /root/account &&sed -i "s/^fastcgi_param PHP_ADMIN_VALUE/#&/" /usr/local/nginx/conf/fastcgi.conf;
+RUN	mkdir /home/www/kcshop && chown www.www /home/www/kcshop && mkdir /root/account &&sed -i "s/^fastcgi_param PHP_ADMIN_VALUE/#&/" /usr/local/nginx/conf/fastcgi.conf;
 
 # expose port
 EXPOSE 81 82 83
