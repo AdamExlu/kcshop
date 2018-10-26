@@ -1,4 +1,4 @@
-FROM centos:7
+FROM lurunhao/centos7-lnmp-php_7.2.6:v1.0
 LABEL version="1.0"
 LABEL description="kcshop setup"
 
