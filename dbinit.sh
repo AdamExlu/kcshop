@@ -6,7 +6,6 @@ username="root"
 if [ -f "/root/account/account.txt" ];then
 	echo "读取account"
     password=$(head -n 1 /root/account/account.txt)
-	admin_pass=$(head -n 2 /root/account/account.txt)
 else
 	echo "默认account"
     password="0220f96dba"
@@ -39,8 +38,8 @@ if [ $? = "0"  ];then
 		/home/www/kcshop/yii init ${admin_pass}
 
 		touch /root/account/account.txt
-		echo "${kcpass}" > /root/account/account.txt
 		echo "${mysqlpass}" >> /root/account/account.txt
-		echo "1:kcshopDBpass	2:mysqlRootPass" >> /root/account/account.txt
+		echo "${kcpass}" > /root/account/account.txt
+		echo "1:mysqlRootPass	2:kcshopDBpass" >> /root/account/account.txt
 	fi
 fi
