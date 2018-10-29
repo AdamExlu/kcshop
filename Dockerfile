@@ -21,7 +21,7 @@ RUN wget http://file.kcshop.pro/ImageMagick-7.0.7-25.tar.gz && tar zxvf ImageMag
 	./configure --with-php-config=/usr/local/php/bin/php-config && \
 	make && cp ./modules/fileinfo.so /usr/local/php/lib/php/extensions/no-debug-non-zts-20170718/fileinfo.so && \
 	sed -i '/\[PHP\]/a\extension=fileinfo\.so' /usr/local/php/etc/php.ini &&\
-	cd /root && rm -rf ext;
+	cd /root && rm -rf ext && rm -rf /root/src;
 
 
 # expose port
