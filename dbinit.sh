@@ -39,7 +39,7 @@ if [ $? = "0"  ];then
 
 		touch /root/account/account.txt
 		echo "${mysqlpass}" >> /root/account/account.txt
-		echo "${kcpass}" > /root/account/account.txt
+		echo "${kcpass}" >> /root/account/account.txt
 		echo "1:mysqlRootPass	2:kcshopDBpass" >> /root/account/account.txt
 	fi
 fi
