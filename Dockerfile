@@ -27,6 +27,7 @@ RUN wget http://file.kcshop.pro/ImageMagick-7.0.7-25.tar.gz && tar zxvf ImageMag
 # expose port
 EXPOSE 81 82 83
 COPY start.sh /root/start.sh
+COPY vendor.sh /root/vendor.sh
 COPY dbinit.sh /root/dbinit.sh
 COPY conf/api.conf /usr/local/nginx/conf/vhost/
 COPY conf/wechat.conf /usr/local/nginx/conf/vhost/
