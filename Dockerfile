@@ -36,6 +36,7 @@ COPY conf/backend.conf /usr/local/nginx/conf/vhost/
 # kcshop
 RUN	chmod a+x /root/start.sh && \
 	chmod a+x /root/dbinit.sh && \
+	chmod a+x /root/vendor.sh && \
 	mkdir /home/www/kcshop && \
 	chown www.www /home/www/kcshop && \
 	mkdir /root/account ;
