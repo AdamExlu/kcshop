@@ -35,7 +35,7 @@ if [ $? = "0"  ];then
 		sed -i "s/root/kcshop/" /home/www/kcshop/common/config/main-local.php
 		sed -i "s/'password' => ''/'password' => '${kcpass}'/" /home/www/kcshop/common/config/main-local.php
 
-		#/home/www/kcshop/yii init ${admin_pass}
+		/home/www/kcshop/yii init ${admin_pass}
 
 		touch /root/account/account.txt
 		echo "${mysqlpass}" >> /root/account/account.txt
