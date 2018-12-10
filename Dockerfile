@@ -21,14 +21,14 @@ RUN wget http://file.kcshop.pro/ImageMagick-7.0.7-25.tar.gz && tar zxvf ImageMag
 	./configure --with-php-config=/usr/local/php/bin/php-config && \
 	make && cp ./modules/fileinfo.so /usr/local/php/lib/php/extensions/no-debug-non-zts-20170718/fileinfo.so && \
 	sed -i '/\[PHP\]/a\extension=fileinfo\.so' /usr/local/php/etc/php.ini &&\
-	cd /root && rm -rf ext && rm -rf /root/src;
+	cd /root && rm -rf ext && rm -rf /root/src ;
 
 
 # expose port
 EXPOSE 81 82 83
 COPY start.sh /root/start.sh
-COPY vendor.sh /root/vendor.sh
 COPY dbinit.sh /root/dbinit.sh
+COPY runtime /home/www/kcshop_runtime
 COPY conf/api.conf /usr/local/nginx/conf/vhost/
 COPY conf/wechat.conf /usr/local/nginx/conf/vhost/
 COPY conf/backend.conf /usr/local/nginx/conf/vhost/
@@ -36,9 +36,18 @@ COPY conf/backend.conf /usr/local/nginx/conf/vhost/
 # kcshop
 RUN	chmod a+x /root/start.sh && \
 	chmod a+x /root/dbinit.sh && \
-	chmod a+x /root/vendor.sh && \
+	#uploads
+	mkdir /home/www/kcshop_uploads	&& \
+	chown -R www.www /home/www/kcshop_uploads	&& \
+	#kcshop
 	mkdir /home/www/kcshop && \
 	chown www.www /home/www/kcshop && \
+	#runtime
+	chmod -R 777 /home/www/kcshop_runtime && \
+	chown -R www.www /home/www/kcshop_runtime && \
+	#/etc/my.cnf
+	sed -i "s/innodb_buffer_pool_size = 1024M/innodb_buffer_pool_size = 256M/g" /etc/my.cnf	&&\
+	
 	mkdir /root/account ;
 
 
