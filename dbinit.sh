@@ -16,11 +16,11 @@ if [ $? = "0"  ];then
 		select_sql="CREATE DATABASE kcshop DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci"
 		mysql  -h${hostname} -P${port} -u${username} -p${password} -e "${select_sql}"
 
-		kcpass=`0220f96dba`
+		kcpass="0220f96dba"
 		select_sql="GRANT ALL PRIVILEGES ON kcshop.* TO 'kcshop'@'localhost' IDENTIFIED BY '${kcpass}'"
 		mysql  -h${hostname} -P${port} -u${username} -p${password} -e "${select_sql}"
 
-		mysqlpass=`foe73klns6`
+		mysqlpass="foe73klns6"
 		select_sql="GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '${mysqlpass}';FLUSH PRIVILEGES"
 		mysql  -h${hostname} -P${port} -u${username} -p${password} -e "${select_sql}"
 
