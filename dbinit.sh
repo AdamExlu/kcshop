@@ -4,7 +4,7 @@ hostname=localhost
 port="3306"
 username="root"
 password="0220f96dba"
-admin_pass="kckj123"
+#admin_pass="kckj123"
 
 select_sql="SHOW DATABASES LIKE 'kcshop'"
 v=`mysql  -h${hostname} -P${port} -u${username} -p${password} -e "${select_sql}"`
@@ -28,7 +28,7 @@ if [ $? = "0"  ];then
 		#sed -i "s/root/kcshop/" /home/www/kcshop/common/config/main-local.php
 		#sed -i "s/'password' => ''/'password' => '${kcpass}'/" /home/www/kcshop/common/config/main-local.php
 
-		/home/www/kcshop/yii init ${admin_pass}
+		/home/www/kcshop/yii init $BACKEND
 
 		touch /root/account/account.txt
 		echo "${mysqlpass}" >> /root/account/account.txt
