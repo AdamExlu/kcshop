@@ -10,7 +10,7 @@ LABEL description="kcshop setup"
 
 # install Imagick & fileinfo
 COPY ext /root/ext
-RUN cd /root/ext && tar -zxvf ImageMagick.tar && \
+RUN cd /root/ext && tar -zxvf ImageMagick.tar.gz && \
 	cd ImageMagick-7.0.8-23 && ./configure && make && make install && cd .. && \
 	wget http://file.kcshop.pro/imagick-3.4.3.tgz && tar zxvf imagick-3.4.3.tgz && \
 	cd imagick-3.4.3 && /usr/local/php/bin/phpize && ./configure --with-php-config=/usr/local/php/bin/php-config --with-imagick=/usr/local/imagemagick&& \
