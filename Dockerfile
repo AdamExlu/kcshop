@@ -26,7 +26,7 @@ RUN cd /root/ext && tar -zxvf ImageMagick.tar.gz && \
 	cd /root/src && wget http://download.redis.io/releases/redis-4.0.2.tar.gz &&\
 	tar xzf redis-4.0.2.tar.gz && cd redis-4.0.2 && make && make install &&\
 	cd /root/src && wget https://pecl.php.net/get/redis-4.0.0.tgz &&\
-	tar xzf redis-4.0.0.tar.gz && cd redis-4.0.0 && /usr/local/php/bin/phpize &&\
+	tar xzf redis-4.0.0.tgz && cd redis-4.0.0 && /usr/local/php/bin/phpize &&\
 	./configure --with-php-config=/usr/local/php/bin/php-config &&\
 	make && make install && mv /root/src/redis-4.0.2 /usr/local/redis &&\
 	sed -i '/\[PHP\]/a\extension=redis\.so' /usr/local/php/etc/php.ini &&\
