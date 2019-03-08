@@ -16,8 +16,8 @@ RUN cd /root/ext && tar -zxvf ImageMagick.tar.gz && \
 	./configure --with-php-config=/usr/local/php/bin/php-config && make && make install &&\
 	sed -i '/\[PHP\]/a\extension=fileinfo\.so' /usr/local/php/etc/php.ini &&\
 	#mongoDb
-	cd /root/src && wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon-3.6.3.tgz &&\
-	tar zxvf mongodb-linux-x86_64-amazon-3.6.3.tgz && mv mongodb-linux-x86_64-amazon-3.6.3 /usr/local/mongodb &&\
+	cd /root/ext && tar zxvf mongodb-linux-x86_64-amazon-3.6.3.tgz &&\ 
+	mv mongodb-linux-x86_64-amazon-3.6.3 /usr/local/mongodb &&\
 	cd /root/src && wget https://pecl.php.net/get/mongodb-1.5.3.tgz &&\
 	tar zxvf mongodb-1.5.3.tgz && cd mongodb-1.5.3 && /usr/local/php/bin/phpize &&\
 	./configure --with-php-config=/usr/local/php/bin/php-config && make && make install &&\
