@@ -1,0 +1,9 @@
+[Service]
+Type=forking
+ExecStart=/usr/local/mongodb/bin/mongod --config /usr/local/mongodb/bin/mongodb.conf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/usr/local/mongodb/bin/mongod --shutdown --config /usr/local/mongodb/bin/mongodb.conf
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
